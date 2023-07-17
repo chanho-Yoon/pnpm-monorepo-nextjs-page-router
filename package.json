@@ -1,0 +1,37 @@
+{
+  "name": "web-monorepo",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "lint": "pnpm --filter web lint",
+    "dev:local": "pnpm --filter web dev:local",
+    "dev:development": "pnpm --filter web dev:development",
+    "dev:production": "pnpm --filter web dev:production",
+    "build:local": "pnpm --filter web build:local",
+    "build:development": "pnpm --filter web build:development",
+    "build:production": "pnpm --filter web build:production",
+    "build:all-local": "pnpm --filter web build:local && pnpm --filter shared-ui build-storybook && pnpm lint",
+    "build:all-development": "pnpm --filter web build:development && pnpm --filter shared-ui build-storybook && pnpm lint",
+    "build:all-production": "pnpm --filter web build:production && pnpm --filter shared-ui build-storybook && pnpm lint",
+    "start": "pnpm --filter web start",
+    "storybook:shared-ui": "pnpm --filter shared-ui storybook",
+    "build-storybook:shared-ui": "pnpm --filter shared-ui build-storybook"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "eslint": "^8.45.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "typescript": "^5.1.6"
+  },
+  "packageManager": "pnpm@8.6.7"
+}
